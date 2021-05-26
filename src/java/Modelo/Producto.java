@@ -18,6 +18,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Producto {
     
+    //Los atributo de este modelo no concuerda con el de la base de datos
+    
     public int id;
     public String nombre;
     public String descripcion;
