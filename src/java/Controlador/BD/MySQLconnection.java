@@ -1,8 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/** 
+ *  Clase: MySQLconnection
+ *  version: 1.0 
+ *  Sincelejo: 20/05/2021
+ *  Fecha de Modificación: 
+ *  autor: Osnayder Conde Rodriguez, Vincenzo Angelone Salgado
  */
+
 package Controlador.BD;
 
 import java.sql.Connection;
@@ -11,10 +14,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Osnayder
- */
+
 public class MySQLconnection {
 
     private  Connection con = null;
@@ -24,7 +24,7 @@ public class MySQLconnection {
         if(con==null){
             try {
                 String user = "root";
-                String password = "";
+                String password = "root";
                 Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
                 String sURL = "jdbc:mysql://localhost:3306/capstore?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
                 con = DriverManager.getConnection(sURL,user,password);
@@ -36,7 +36,6 @@ public class MySQLconnection {
             
         }
     }
-    
     
     public Connection getConnection() {
         return this.con;

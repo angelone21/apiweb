@@ -1,8 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/** 
+ *  Clase: OperacionesBD 
+ *  version: 1.0 
+ *  Sincelejo: 20/05/2021
+ *  Fecha de Modificación: 
+ *  autor: Osnayder Conde Rodriguez, Vincenzo Angelone Salgado
  */
+
 package Controlador.BD;
 
 import Modelo.Producto;
@@ -14,22 +17,21 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Osnayder
- */
+
 public class OperacionesBD {
 
-    private MySQLconnection connection;
+    private static MySQLconnection connection = null;
 
     public OperacionesBD() {
-        connection = new MySQLconnection();
+        if(OperacionesBD.connection==null){ //Singelton de conexion a Bases de datos
+            connection = new MySQLconnection();
+        }
     }
 
     public boolean login(int id, String password) {
         String sql = "SELECT * FROM usuario where ID_usuario like ? and password like ?";
         PreparedStatement statement;
-
+        
         try {
             statement = connection.getConnection().prepareStatement(sql);
             statement.setString(1, "%" + id + "%");
@@ -38,7 +40,6 @@ public class OperacionesBD {
             if (result.isBeforeFirst() == true) {
                 return true;
             }
-
         } catch (SQLException ex) {
             Logger.getLogger(OperacionesBD.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -47,8 +48,8 @@ public class OperacionesBD {
 
     public boolean registroUsuarioCliente(Usuario usuario) {
         String sql = "INSERT INTO usuario (ID_usuario,ID_rol,password,nombres,apellidos,fecha_nacimiento,genero) VALUES (?, ?, ?,?,?,?,?)";
-
         PreparedStatement statement;
+        
         try {
             statement = connection.getConnection().prepareStatement(sql);
             statement.setInt(1, usuario.getID_usuario());
@@ -228,5 +229,4 @@ public class OperacionesBD {
 
         return producto;
     }
-
 }
