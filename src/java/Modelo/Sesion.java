@@ -1,5 +1,5 @@
 /** 
- *  Clase: Producto
+ *  Clase: Sesion
  *  version: 1.0 
  *  Sincelejo: 20/05/2021
  *  Fecha de Modificación: 
