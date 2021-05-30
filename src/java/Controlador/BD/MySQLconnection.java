@@ -24,7 +24,7 @@ public class MySQLconnection {
         if(con==null){
             try {
                 String user = "root";
-                String password = "root";
+                String password = "";
                 Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
                 String sURL = "jdbc:mysql://localhost:3306/capstore?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
                 con = DriverManager.getConnection(sURL,user,password);
