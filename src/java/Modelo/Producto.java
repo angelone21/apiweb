@@ -1,24 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/** 
+ *  Clase: Producto
+ *  version: 1.0 
+ *  Sincelejo: 20/05/2021
+ *  Fecha de Modificación: 
+ *  autor: Vincenzo Angelone Salgado
  */
+
 package Modelo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-
-/**
- *
- * @author Vincenzo Angelone
- */
-
-@XmlRootElement(name = "Usuarios")
-@XmlAccessorType(XmlAccessType.FIELD)
 public class Producto {
-    
-    //Los atributo de este modelo no concuerda con el de la base de datos
     
     public int id;
     public String nombre;
@@ -27,8 +17,7 @@ public class Producto {
     public int cantidad;
     public String tipo;
 
-    public Producto() {
-    }
+    public Producto() {}
 
     public Producto(int id, String nombre, String descripcion, int precio, int cantidad, String tipo) {
         this.id = id;
@@ -86,8 +75,4 @@ public class Producto {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-    
-    
-    
-    
 }

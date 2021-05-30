@@ -1,20 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/** 
+ *  Clase: Producto
+ *  version: 1.0 
+ *  Sincelejo: 20/05/2021
+ *  Fecha de Modificación: 
+ *  autor: Vincenzo Angelone Salgado
  */
+
 package Modelo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-
-/**
- *
- * @author cliente
- */
-@XmlRootElement(name = "Usuario")
-@XmlAccessorType(XmlAccessType.FIELD)
 public class Usuario {
     
     private int ID_usuario;
@@ -25,8 +18,7 @@ public class Usuario {
     private String fecha_nacimiento;
     private String genero;
 
-    public Usuario() {
-    }
+    public Usuario() {}
 
     public Usuario(int ID_usuario, int ID_rol,String password, String Nombres, String Apellidos, String Fecha_Nacimiento, String Genero) {
         this.ID_usuario = ID_usuario;
@@ -93,8 +85,4 @@ public class Usuario {
     public void setGenero(String genero) {
         this.genero = genero;
     }
-    
-    
-    
-    
 }
