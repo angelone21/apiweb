@@ -29,12 +29,13 @@
     <link href="css/sidebars.css" rel="stylesheet">
     <link href="css/bootstrap-5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/features.css" rel="stylesheet" type="text/css"/>
+    <link href="css/style_ventana_emergente.css" rel="stylesheet" type="text/css"/>
   </head>
 <body>
     <!-- Imaganes SVG -->
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">     
       <symbol id="logocapstore" viewBox="0 0 223 168">
-        <g transform="translate(0.000000,168.000000) scale(0.100000,-0.100000)" fill="#ffffff" stroke="none">
+        <g  transform="translate(0.000000,168.000000) scale(0.100000,-0.100000)" fill="#ffffff" stroke="none">
         <path d="M515 1540 c-22 -11 -51 -37 -65 -58 l-25 -37 2 -415 c2 -275 6 -424 14 -442 14 -34 71 -73 128 -88 83 -22 189 11 235 73 19 25 21 45 24 178 l3 149 -75 0 -76 0 0 -97 c0 -140 -7 -172 -38 -180 -53 -13 -56 -2 -63 203 -4 104 -4 281 -1 392 5 198 6 204 27 214 16 7 29 7 43 -1 20 -11 22 -21 24 -139 l3 -127 45 -3 c24 -2 59 -1 77 3 l33 6 0 127 c0 157 -17 203 -90 240 -59 30 -167 31 -225 2z"/><path d="M1005 1539 c-5 -8 -21 -143 -70 -604 -9 -82 -23 -190 -31 -240 -8 -49 -14 -111 -14 -137 l0 -48 64 0 c36 0 67 4 71 10 3 5 10 49 16 97 5 48 12 107 15 131 l5 42 49 0 48 0 6 -72 c4 -40 12 -103 18 -141 l11 -67 74 0 73 0 0 38 c0 20 -13 150 -29 287 -16 138 -37 327 -46 420 -10 94 -23 197 -29 230 l-11 60 -107 2 c-59 1 -110 -3 -113 -8z m134 -576 c1 -31 -1 -33 -33 -33 -39 0 -37 -21 -17 170 6 52 14 131 18 175 7 79 7 78 19 -100 7 -99 13 -195 13 -212z"/><path d="M1424 1541 c-2 -2 -4 -235 -4 -518 l0 -514 78 3 77 3 3 198 2 197 62 0 c81 0 136 31 164 92 17 37 19 66 19 228 0 176 -1 187 -24 226 -36 64 -72 77 -234 84 -76 3 -141 3 -143 1z m224 -137 c21 -15 22 -21 22 -183 0 -184 1 -181 -61 -181 l-29 0 0 190 0 190 23 0 c12 0 33 -7 45 -16z"/><path d="M540 300 c-11 -11 -20 -26 -20 -34 0 -20 28 -46 49 -46 9 0 26 -7 37 -15 19 -15 19 -15 0 -30 -12 -9 -29 -12 -49 -8 -23 5 -29 3 -25 -8 3 -8 21 -15 46 -17 34 -3 43 1 57 22 21 31 6 63 -33 72 -48 10 -54 14 -50 31 2 13 14 18 38 19 52 2 53 3 40 19 -18 21 -66 19 -90 -5z"/><path d="M760 305 c0 -9 9 -15 25 -15 25 0 25 -1 25 -81 0 -71 2 -80 18 -77 14 3 17 16 20 80 2 68 5 77 23 80 11 2 21 8 22 13 1 6 -27 11 -65 13 -56 2 -68 0 -68 -13z"/><path d="M1030 300 c-16 -16 -20 -33 -20 -80 0 -66 12 -80 69 -80 39 0 61 31 61 86 0 78 -63 121 -110 74z m74 -26 c11 -29 6 -83 -10 -98 -8 -9 -17 -16 -19 -16 -2 0 -11 7 -19 16 -19 18 -21 85 -4 102 17 17 45 15 52 -4z"/><path d="M1276 239 c-7 -84 -4 -99 20 -99 9 0 14 11 14 35 0 25 5 35 15 35 9 0 23 -16 32 -35 10 -21 24 -35 35 -35 18 0 18 2 -2 39 -17 34 -18 41 -5 51 22 18 19 67 -4 80 -11 5 -37 10 -59 10 l-39 0 -7 -81z m92 24 c3 -20 -1 -23 -27 -23 -27 0 -31 4 -31 26 0 22 4 25 28 22 19 -2 28 -9 30 -25z"/><path d="M1540 230 l0 -90 61 0 c44 0 60 3 57 13 -3 6 -23 13 -46 15 -33 3 -42 7 -42 22 0 14 9 20 37 22 52 4 56 28 4 28 -37 0 -41 2 -41 25 0 23 4 25 45 25 33 0 45 4 45 15 0 12 -13 15 -60 15 l-60 0 0 -90z"/>
         </g>
       </symbol>
@@ -45,6 +46,16 @@
       <symbol id="grid" viewBox="0 0 16 16">
         <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"/>
       </symbol>
+      <symbol id="edit" viewBox="5 0 50 50">
+        <g transform="translate(0.000000,48.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+           <path d="M335 460 c-19 -21 -18 -22 43 -82 60 -61 61 -62 82 -43 31 28 25 62 -19 106 -44 44 -78 50 -106 19z"/> <path d="M177 302 c-105 -105 -133 -142 -109 -142 4 0 61 54 127 120 80 80 116 123 109 130 -6 6 -49 -30 -127 -108z"/> <path d="M212 257 c-67 -68 -122 -128 -122 -134 0 -21 28 -35 47 -24 10 5 69 61 131 123 l113 114 -24 22 -23 22 -122 -123z"/> <path d="M277 192 c-64 -64 -117 -121 -117 -125 0 -24 38 6 143 111 102 102 124 132 98 132 -4 0 -59 -53 -124 -118z"/> <path d="M18 73 c-9 -38 -16 -69 -15 -70 6 -5 137 32 137 39 0 4 -13 14 -30 23 -16 8 -37 29 -45 45 -9 17 -19 30 -23 30 -5 0 -15 -30 -24 -67z"/>
+        </g>
+      </symbol>
+      <symbol id="delete" viewBox="-10 5 45 45">
+        <g transform="translate(0.000000,48.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+           <path d="M113 400 c-4 -16 -14 -20 -44 -20 -28 0 -39 -4 -39 -15 0 -13 22 -15 136 -15 104 0 135 3 132 13 -3 6 -23 13 -46 15 -34 3 -42 7 -42 23 0 16 -7 19 -46 19 -37 0 -47 -4 -51 -20z m85 -7 c2 -9 -8 -13 -32 -13 -26 0 -36 4 -36 16 0 19 61 16 68 -3z"/> <path d="M52 188 l3 -133 108 -3 107 -3 0 136 0 135 -110 0 -111 0 3 -132z m55 -65 c-2 -32 -3 -6 -3 57 0 63 1 89 3 58 2 -32 2 -84 0 -115z m60 10 c-2 -32 -3 -8 -3 52 0 61 1 87 3 58 2 -29 2 -78 0 -110z m63 52 c0 -63 -4 -105 -10 -105 -6 0 -10 42 -10 105 0 63 4 105 10 105 6 0 10 -42 10 -105z"/>
+        </g>
+      </symbol>
     </svg>
 
 <main id="vista">
@@ -53,7 +64,7 @@
     <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 300px;">
         <a href="" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
           <svg class="bi me-2" width="100" height="100"><use xlink:href="#logocapstore"/></svg>
-          <span class="fs-4" style="padding-bottom: 10px;">Administ</span>
+          <span class="fs-4" style="padding-bottom: 10px;">PANEL </span>
         </a>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
@@ -93,28 +104,99 @@
         <!-- menu configuracion -->
     </div>
 <!-- Menu --> 
-    <div class="b-example-divider"></div>
+    
       
 <!-- Contenedor de menu -->    
     <!-- Gestionar Clientes -->
-    <div class="container">
-            <div class="container" id="tab_clientes">
+    <div class="container" >
+            <div class="container" id="contenedor_clientes">
                 <ul class="nav nav-tabs" role="tablist">
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tabxy1" type="button" role="tab" aria-controls="tabxy1" aria-selected="true">Clientes</button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link"  data-bs-toggle="tab" data-bs-target="#tabxy2" type="button" role="tab" aria-controls="tabxy2" aria-selected="false">Informes</button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link"  data-bs-toggle="tab" data-bs-target="#tabxy3" type="button" role="tab" aria-controls="tabxy3" aria-selected="false">Facturas</button>
-                  </li>
+                    <li class="nav-item" role="presentation">
+                        <button id="tab_clientes" class="nav-link active fw-bold" data-bs-toggle="tab" data-bs-target="#tabxy1" type="button" role="tab" aria-controls="tabxy1" aria-selected="true">LISTA DE CLIENTES</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link fw-bold"  data-bs-toggle="tab" data-bs-target="#tabxy2" type="button" role="tab" aria-controls="tabxy2" aria-selected="false">Informes</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link fw-bold"  data-bs-toggle="tab" data-bs-target="#tabxy3" type="button" role="tab" aria-controls="tabxy3" aria-selected="false">Facturas</button>
+                    </li>
                 </ul>
 
                 <div class="tab-content">
-                    <div class="tab-pane fade show active" id="tabxy1" role="tabpanel" aria-labelledby="tabxy1-tab">
-                        <p>Lista de clientes, esta seccion puede hacer un CRUD de los CLientes</p>
+                    <div  class="tab-pane fade show active" id="tabxy1" role="tabpanel" aria-labelledby="tabxy1-tab" style="overflow: scroll; height: 650px; padding: 5px;">
+                        <hr>
+                        <div class="container">
+                            <div class="row" style="background-color: #ccffff;">
+                                <div class="col">
+                                    <p class="fw-bold text-start" style="padding-top:10px; color: #006ee0">Esta es la lista de todos los usuarios registrado en la plaforma digital de CapStore</p>
+                                </div>
+                                <div class="col col-lg-2" style="padding-top: 5px;">
+                                    <button id="actualizar_tabla_usuarios" class="btn btn-primary btn-primary" style="float: right;">Actualizar</button>
+                                </div>
+                                <div class="col-md-auto">
+                                    <img src="public/business_table_order_report_history_2332.png" style="float: right;">
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <table id="tabla_usuarios" class="table table-sm">
+                            <thead class="table-light">
+                              <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Nombres</th>
+                                <th scope="col">Apellidos</th>
+                                <th scope="col">Fecha Nacimiento</th>
+                                <th scope="col">Sexo</th>
+                                <th scope="col">Acciones</th>
+                              </tr>
+                            </thead>
+                            <tbody id="cuerpo_tabla_usuarios">
+                              <!--================ Tabla usuarios ===================-->  
+                            </tbody>
+                        </table>
+                        
+                        <!-- Ventana emergente -->
+                        
+                        <div id="modal_c_edit" class="modal">
+                            <form class="modal-content animate" style="padding: 10px;">
+                                <div class="row g-3">
+                                    <div class="imgcontainer">
+                                            <span id="cerrar_c_edit" class="close" title="Close Modal">&times;</span>
+                                            <img src="public/edit.png" alt="Avatar"  class="avatar">
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label for="edit_c_nombre" class="form-label"><b>Nombre</b></label>
+                                        <input type="text" id="edit_c_nombre" class="form-control" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="edit_c_apellido" class="form-label"><b>Apellido</b></label>
+                                        <input type="text" id="edit_c_apellido" class="form-control" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="edit_c_fecha" class="form-label"><b>Fecha Nacimiento</b></label>
+                                        <input type="date" id="edit_c_fecha" class="form-control" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="edit_c_sexo" class="form-label"><b>Sexo</b></label>
+                                        <input type="text" id="edit_c_sexo" class="form-control" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="edit_c_contrasena_a" class="form-label"><b>Contraseña</b></label>
+                                        <input type="password" id="edit_c_contrasena_a" class="form-control" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="edit_c_contrasena_b" class="form-label"><b>Confirmar Contraseña</b></label>
+                                        <input type="password" id="edit_c_contrasena_b" class="form-control" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="w-100 btn btn-primary btn-sm">Guardar Cambios</button>		
+                                    </div>
+                                </div>
+                            </form>
+                        </div>  
                     </div>
+                    
                     <div class="tab-pane fade" id="tabxy2" role="tabpanel" aria-labelledby="tabxy2-tab">
                         <p>Se muestra informe de clientes estrellas, informe de clientes y compras realizadas</p>  
                     </div>
@@ -125,31 +207,152 @@
             </div>
             
             <!-- Gestionar productos -->
-            <div class="container" id="tab_productos">
+            <div class="container"  id="contenedor_productos">
                 <ul class="nav nav-tabs" role="tablist">
                   <li class="nav-item" role="presentation">
-                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab2xy1" type="button" role="tab" aria-controls="tab2xy1" aria-selected="true">Productos</button>
+                    <button  id="tab_crear_productos" class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab2xy1" type="button" role="tab" aria-controls="tab2xy1" aria-selected="true">Crear Productos</button>
                   </li>
                   <li class="nav-item" role="presentation">
-                    <button class="nav-link"  data-bs-toggle="tab" data-bs-target="#tab2xy2" type="button" role="tab" aria-controls="tab2xy2" aria-selected="false">Informes</button>
+                    <button id="tab_listar_productos" class="nav-link" data-bs-toggle="tab" data-bs-target="#tab2xy2" type="button" role="tab" aria-controls="tab2xy2" aria-selected="true">Lista de Productos</button>
                   </li>
                   <li class="nav-item" role="presentation">
-                    <button class="nav-link"  data-bs-toggle="tab" data-bs-target="#tab2xy3" type="button" role="tab" aria-controls="tab2xy3" aria-selected="false">Categorias</button>
+                    <button class="nav-link"  data-bs-toggle="tab" data-bs-target="#tab2xy3" type="button" role="tab" aria-controls="tab2xy3" aria-selected="false">Informes</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link"  data-bs-toggle="tab" data-bs-target="#tab2xy4" type="button" role="tab" aria-controls="tab2xy4" aria-selected="false">Categorias</button>
                   </li>
                 </ul>
 
                 <div class="tab-content">
-                    <div class="tab-pane fade show active" id="tab2xy1" role="tabpanel" aria-labelledby="tab2xy1-tab">
-                        <p>Lista de clientes, esta seccion puede hacer un CRUD de los CLientes</p>
+                    <div class="tab-pane fade show active" id="tab2xy1" role="tabpanel" aria-labelledby="tab2xy1-tab" style="overflow: scroll; height: 650px;">
+                        
+                        <div class="py-5 text-center">
+                            <h3>Crear Producto</h3>
+                        </div>
+                        <div class="col-md-7 col-lg-8" style="margin-left: 10px;">
+                            <form>
+                                <div class="row g-3">
+                                    <div class="col-sm-6">
+                                        <label for="referencia_producto" class="form-label">Número de Referencia</label>
+                                        <input type="text" class="form-control" id="referencia_producto" placeholder="" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="form-label" for="r_categoria">Categoria</label>
+                                        <select class="form-select" id="r_categoria" required>
+                                          <option selected>Seleccionar...</option>
+                                          <option value="1">Nike</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row g-3">
+                                    <div class="col-sm-6">
+                                        <label for="nombre_producto" class="form-label">Nombre Producto</label>
+                                        <input type="text" class="form-control" id="nombre_producto" placeholder="" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="marca" class="form-label">Marca</label>
+                                        <input type="text" class="form-control" id="marca" placeholder="" required>
+                                    </div>
+                                </div>
+                                <label for="precio" class="form-label">Precio</label>
+                                <div class="input-group col-12">
+                                    <span class="input-group-text">$</span>
+                                    <input type="text" class="form-control" id="precio" aria-label="">
+                                    <span class="input-group-text">.00</span>
+                                </div>
+                                <label for="stock" class="form-label">Stock</label>
+                                <div class="input-group col-12">
+                                    <span class="input-group-text">#</span>
+                                    <input type="text" class="form-control" id="stock" aria-label="">
+                                </div>
+                                <div class="row g-3">
+                                    <div class="col-sm-6">
+                                        <label class="form-label" for="talla">Talla</label>
+                                        <select class="form-select" id="talla" required>
+                                          <option selected>Seleccionar...</option>
+                                          <option value="1">S</option>
+                                          <option value="2">XS</option>
+                                          <option value="3">X</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="form-label" for="color">Color</label>
+                                        <select class="form-select" id="color" required>
+                                          <option selected>Seleccionar...</option>
+                                          <option value="1">Azul</option>
+                                          <option value="2">Amarrillo</option>
+                                          <option value="3">Rojo</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <label for="promocion" class="form-label">Promocion</label>
+                                <div class="input-group col-12">
+                                    <span class="input-group-text">%</span>
+                                    <input type="text" class="form-control" id="promocion" aria-label="">
+                                </div>
+                                <br>
+                                <button id="crear_producto" class="btn btn-primary btn-lg">Crear Producto</button>
+                            </form>
+                        </div>
+
+                        
                     </div>
-                    <div class="tab-pane fade" id="tab2xy2" role="tabpanel" aria-labelledby="tab2xy2-tab">
-                        <p>Se muestra informe de clientes estrellas, informe de clientes y compras realizadas</p>  
+                    <div class="tab-pane fade" id="tab2xy2" role="tabpanel" aria-labelledby="tab2xy2-tab" style="overflow: scroll; height: 650px;">
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">#REFERENCIA</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Categoria</th>
+                                <th scope="col">Promocion</th>
+                                <th scope="col">Acciones</th>
+                              </tr>
+                            </thead>
+                            <tbody id="tabla_productos">
+                              <tr>
+                                <td>100</td>
+                                <td>Gorra</td>
+                                <td>NIKE</td>
+                                <td>10%</td>
+                                <td>
+                                    <button type="button" class="btn btn-secondary btn-sm">Ver Mas</button>
+                                    <button type="button" class="btn btn-secondary btn-sm">Editar</button>
+                                    <button type="button" class="btn btn-secondary btn-sm">Eliminar</button>
+                                </td>
+                              </tr>
+                                
+                            </tbody>
+                        </table>
+                        
+                        
                     </div>
-                    <div class="tab-pane fade" id="tab2xy3" role="tabpanel" aria-labelledby="tab2xy3-tab" style="border: 1px solid #000000;">
+                    <div class="tab-pane fade" id="tab2xy3" role="tabpanel" aria-labelledby="tab2xy3-tab" style="overflow: scroll; height: 650px;">
                         <!--########################Categoria##########################-->
-                        <div style="overflow: scroll; border: 1px solid #00fff0;">
+                            
+                            <form style="margin:10px;">
+                                
+                               <h3>Categorias</h3>
+                               <p class="border-bottom" style="font-size: 1rem">En esta sección usted podrá ver las categorías de productos que ofrece la tienda virtual, así mismo podrá crear nuevas categorías para una nueva línea de productos que pueda ofrecer la tienda.</p>
+                               <h3>Crear Una Categoria</h3>
+                                <div class="mb-3">
+                                    <label for="referencia" class="form-label">Número de Referencia</label>
+                                    <input type="text" class="form-control" id="referencia" placeholder="Referencia">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="nombre_categoria" class="form-label">Nombre Categoria</label>
+                                    <input type="text" class="form-control" id="nombre_categoria" placeholder="Hombres">
+                                </div>
+                                <div class="mb-3">
+                                  <label for="descripcion_categoria" class="form-label">Descripción</label>
+                                  <textarea class="form-control" id="descripcion_categoria" rows="3"></textarea>
+                                </div>
+                               <div class="mb-3">
+                                   <button id="crear_categoria" class="btn btn-primary mb-3">Crear</button>
+                                </div>
+                            </form>
+                        
                             <div class="container px-4 py-5" id="custom-cards">
-                                <h4 class="pb-2 border-bottom">En esta sección usted podrá ver las categorías de productos que ofrece la tienda virtual, así mismo podrá crear nuevas categorías para una nueva línea de productos que pueda ofrecer la tienda.</h4>
+                                <h3>Lista de Categorias</h3>
                                 <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
                                     <div class="col">
                                       <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('public/unsplash-photo-1.jpg');">
@@ -261,7 +464,7 @@
                                 </div>
                             </div>  
                         <!-- ############### categoria##################-->
-                        </div>
+                        
                     </div>
                   </div>
             </div>
@@ -270,47 +473,13 @@
     
 <!-- Contenedor de menu -->    
  </main>
-
+    
       <script src="css/bootstrap-5.0.1/dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+      <script src="css/bootstrap-5.0.1/dist/js/bootstrap.min.js" type="text/javascript"></script>
       <script src="js/sidebars.js" type="text/javascript"></script>
       <script src="js/initializacion.js" type="text/javascript"></script>
-      <script>/*
-        if(localStorage.getItem("myCat")==null){
-            document.getElementById("control").removeChild(document.getElementById("vista"));
-        }*/
-      </script>
-      <script>
-        /*
-        var http = new XMLHttpRequest();
-        var id,contrasena;
-        
-        http.onreadystatechange = function() {
-            if(http.readyState == 4 && http.status == 200) { 
-                if(http.responseText=="true"){
-                    localStorage.setItem("usuario",id);
-                    window.location.href = "panel.html";
-                }else{
-                    alert("Los datos son incorrectos");
-                }
-            }
-            
-        }
-    
-        document.getElementById('bt_iniciarsesion').addEventListener('click', function (e) {    
-            id = document.getElementById("idusuario").value;
-            contrasena = document.getElementById("contrasena").value;
-            var get;
-            if(id=="" && contrasena == ""){
-                get = "?id=0&p=vacio";
-            }else{
-                get = "?id="+id+"&"+"p="+contrasena;
-            }
-            
-            console.log(get);
-            http.open("GET","/APIRESTfull/resources/services/capstore/login"+get, true);
-            http.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
-            http.send();
-        },false);*/
-    </script>
+      <script src="js/operaciones_usuarios.js" type="text/javascript"></script>
+      <script src="js/operaciones_productos.js" type="text/javascript"></script>
+      <script src="js/control_vent_emergente.js" type="text/javascript"></script>
 </body>
 </html>
