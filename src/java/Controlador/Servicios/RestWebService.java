@@ -9,11 +9,10 @@
 package Controlador.Servicios;
 
 import Controlador.BD.OperacionesBD;
+import Modelo.Categoria;
 import Modelo.Producto;
 import Modelo.Sesion;
 import Modelo.Usuario;
-import com.mysql.cj.xdevapi.JsonArray;
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -53,15 +52,6 @@ public class RestWebService {
         return lista;
     }
 
-    @GET
-    @Path("/capstore/buscarUsuario")
-    @Produces({MediaType.APPLICATION_JSON})
-    public Usuario buscarUsuarioID(@QueryParam("id") String id) {
-        OperacionesBD operacion = new OperacionesBD();
-        Usuario usu = operacion.buscarUsuario(Integer.parseInt(id));
-        return usu;
-    }
-    
     @GET
     @Path("/capstore/listarPorNombre")
     @Produces({MediaType.APPLICATION_JSON})
@@ -188,6 +178,89 @@ public class RestWebService {
         
         if(listaUsuarios!=null){
             GenericEntity<List<Usuario>> entidad = new GenericEntity<List<Usuario>>(listaUsuarios){};
+            return Response.ok(entidad).build();
+        }else{
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+    
+    @POST
+    @Path("/capstore/eliminarusuarios")
+    @Consumes({MediaType.TEXT_PLAIN})
+    public Response eliminarUsuarios(String id) {
+        OperacionesBD operacion = new OperacionesBD();
+        if(operacion.eliminarUsuario(Integer.parseInt(id))){
+            return Response.ok().build();
+        }else{
+            return Response.serverError().build();
+        }
+    }
+    
+    @GET
+    @Path("/capstore/listarproductos")
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response listarProductos() {
+        OperacionesBD operacion = new OperacionesBD();
+        List<Producto> listaProductos = operacion.listarProductos();
+        
+        if(listaProductos!=null){
+            GenericEntity<List<Producto>> entidad = new GenericEntity<List<Producto>>(listaProductos){};
+            return Response.ok(entidad).build();
+        }else{
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+    
+    @POST
+    @Path("/capstore/crearcategoria")
+    @Consumes({MediaType.APPLICATION_JSON})
+    public Response crearCategoria(Categoria categoria) {
+        OperacionesBD operacion = new OperacionesBD();
+        
+        if(operacion.crearCategoria(categoria)){
+            return Response.ok("Se Creo Exitosamente La Categiria",MediaType.TEXT_PLAIN).build();
+        }else{
+            return Response.ok("ERRORX1",MediaType.TEXT_PLAIN).build();
+        }
+    }
+    
+    @GET
+    @Path("/capstore/buscarUsuario")
+    @Consumes({MediaType.TEXT_PLAIN})
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response buscarUsuarioID(@QueryParam("id") String id) {
+        OperacionesBD operacion = new OperacionesBD();
+        Usuario usuario = operacion.buscarUsuario(Integer.parseInt(id));
+        if(usuario!=null){
+            System.out.println("se busco un cliente"+usuario.getID_usuario());
+            return Response.ok(usuario, MediaType.APPLICATION_JSON).build();
+        }else{
+            return Response.serverError().build();
+        }
+    }
+    
+    @POST
+    @Path("/capstore/actualizarusuario")
+    @Consumes({MediaType.APPLICATION_JSON})
+    public Response actualizarUsuario(Usuario usuario) {
+        OperacionesBD operacion = new OperacionesBD();
+        if(operacion.actualizarUsuario(usuario)){
+            System.out.println("se actualizo un usuario"+usuario.getID_usuario());
+            return Response.ok(usuario, MediaType.APPLICATION_JSON).build();
+        }else{
+            return Response.serverError().build();
+        }
+    }
+    
+    @GET
+    @Path("/capstore/listarcategorias")
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response listarCategorias() {
+        OperacionesBD operacion = new OperacionesBD();
+        List<Categoria> listaCategoria = operacion.listarCategoria();
+        
+        if(listaCategoria!=null){
+            GenericEntity<List<Categoria>> entidad = new GenericEntity<List<Categoria>>(listaCategoria){};
             return Response.ok(entidad).build();
         }else{
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
