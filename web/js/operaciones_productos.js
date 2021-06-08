@@ -4,10 +4,54 @@
  * and open the template in the editor.
  */
 
+window.addEventListener('load',pullCategoria,false); 
+
+document.getElementById('actualizar_tabla_categoria').addEventListener('click',pullCategoria,false);
+document.getElementById('actualizar_tabla_productos').addEventListener("click",pullProductos,false);
 document.getElementById("tab_listar_productos").addEventListener("click",pullProductos,false);
 document.getElementById("crear_categoria").addEventListener("click",crear_categoria,false);
 document.getElementById("crear_producto").addEventListener("click",crear_producto,false);
 
+function desplegar_datos_categorias(listajson){
+    document.getElementById('tabla_categoria').removeChild(document.getElementById("cuerpo_tabla_categoria"));
+    var TBODY = document.createElement("tbody");
+        TBODY.setAttribute("id", "cuerpo_tabla_categoria");
+        
+    for(let i=0; i<listajson.length; i++){
+        var row = document.createElement("tr");
+        var column_1 = document.createElement("td");
+        var column_2 = document.createElement("td");
+        
+        column_1.innerHTML = listajson[i].ID_Categoria;
+        column_2.innerHTML = listajson[i].categoria;
+        
+        row.appendChild(column_1);
+        row.appendChild(column_2);
+        
+        TBODY.appendChild(row);
+    }
+    document.getElementById("tabla_categoria").appendChild(TBODY);
+}
+
+function pullCategoria(){
+    var http = new XMLHttpRequest();
+    
+    http.onreadystatechange = function() {
+        if(http.readyState == 4) {  // Cuando readyState es igual a 4 la respuesta esta lista
+            if(http.status == 200){ // Cuando el status es 200 la respuesta llega sin problemas
+                var listaCategoria = JSON.parse(http.responseText);
+                desplegar_datos_categorias(listaCategoria);
+            }else{
+                console.log("Error al cargar las categoria");
+            }
+        }
+    };
+    
+    http.open("GET","/APIRESTfull/resources/services/capstore/listarcategorias", true);
+    http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    http.send();
+    console.log("Se envio la solicitud listar categoria");
+}
 
 function crear_categoria(){
     var http = new XMLHttpRequest();
@@ -15,7 +59,8 @@ function crear_categoria(){
     http.onreadystatechange = function() {
         if(http.readyState == 4) {  // Cuando readyState es igual a 4 la respuesta esta lista
             if(http.status == 200){ // Cuando el status es 200 la respuesta llega sin problemas
-                console.log("Ok http "+http.responseText);
+                alert("Se creo de manera exitosa la categoria");
+                console.log("Ok http");
             }else{
                 console.log("Error al crear la categoria");
             }
@@ -38,9 +83,9 @@ function crear_producto(){
     http.onreadystatechange = function() {
         if(http.readyState == 4) {  // Cuando readyState es igual a 4 la respuesta esta lista
             if(http.status == 200){ // Cuando el status es 200 la respuesta llega sin problemas
-                console.log("Se creo el producto "+http.responseText);
+                alert("Se creo de manera exitosa el producto");
             }else{
-                console.log("Error al crear el producto");
+                console.log("No se pudo crear el producto");
             }
         }
     };
@@ -64,6 +109,10 @@ function crear_producto(){
 
 
 function desplegar_datos_productos(listajson){
+    document.getElementById('tabla_productos').removeChild(document.getElementById("cuerpo_tabla_productos"));
+    var TBODY = document.createElement("tbody");
+        TBODY.setAttribute("id", "cuerpo_tabla_productos");
+        
     for(let i=0; i<listajson.length; i++){
         var row = document.createElement("tr");
         var column_1 = document.createElement("td");
@@ -84,8 +133,9 @@ function desplegar_datos_productos(listajson){
         row.appendChild(column_4);
         row.appendChild(column_5);
         
-        document.getElementById("tabla_productos").appendChild(row);
+        TBODY.appendChild(row);
     }
+    document.getElementById("tabla_productos").appendChild(TBODY);
 }
 
 function pullProductos(){   

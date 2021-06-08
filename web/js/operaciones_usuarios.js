@@ -6,9 +6,72 @@
 
 var usuario_u;
 
-window.onload = function(){ pullUsuarios();};
+window.addEventListener('load',pullUsuarios,false); 
 
 document.getElementById('actualizar_tabla_usuarios').addEventListener('click',pullUsuarios,false);
+document.getElementById('registrar_usuario_panel').addEventListener('click',rigistrar_usuario,false);
+
+function rigistrar_usuario(){
+    var http = new XMLHttpRequest();
+    
+    http.onreadystatechange = function() {
+        if(http.readyState == 4) {
+            if(http.status == 200){
+                alert("Registro Exitoso");  
+                document.getElementById("identificacion").value = "";
+                document.getElementById("nombres").value = "";
+                document.getElementById("apellidos").value = "";
+                document.getElementById("fechanacimiento").value = "2000-01-01";
+                document.getElementById("sexo").value = "";
+                document.getElementById("contrasena").value="";
+            }else{
+               alert("Su Registro Fue Fallido");
+            }
+        }
+    };
+    
+    var idetificacionIN = document.getElementById("identificacion").value;
+    var nombresIN  = document.getElementById("nombres").value;
+    var apellidosIN = document.getElementById("apellidos").value;
+    var fechanacimientoIN = document.getElementById("fechanacimiento").value;
+    var sexoIN = document.getElementById("sexo").value;
+    var contrasenaIN    = document.getElementById("contrasena").value;
+
+    http.open("POST","http://localhost:8080/APIRESTfull/resources/services/capstore/registroUsuarioCliente", true);
+    http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    http.send(JSON.stringify({"ID_usuario":idetificacionIN,"ID_rol":2,"password":contrasenaIN,"nombres":nombresIN,"apellidos":apellidosIN,"fecha_nacimiento":fechanacimientoIN,"genero":sexoIN}));
+    console.log("Enviando datos al servidor...");
+}
+
+function desplegar_datos_informes_usuarios(listajson){
+    document.getElementById('tabla_informes_usuarios').removeChild(document.getElementById("cuerpo_tabla_informes_usuarios"));
+    var TBODY = document.createElement("tbody");
+        TBODY.setAttribute("id", "cuerpo_tabla_informes_usuarios");
+        
+    for(let i=0; i<listajson.length; i++){
+        var row = document.createElement("tr");
+        var column_1 = document.createElement("td");
+        var column_2 = document.createElement("td");
+        var column_3 = document.createElement("td");
+        var column_4 = document.createElement("td");
+        var column_5 = document.createElement("td");
+        
+        column_1.innerHTML = listajson[i].ID_usuario;
+        column_2.innerHTML = listajson[i].nombres;
+        column_3.innerHTML = listajson[i].apellidos;
+        column_4.innerHTML = listajson[i].fecha_nacimiento;
+        column_5.innerHTML = listajson[i].genero;
+        
+        row.appendChild(column_1);
+        row.appendChild(column_2);
+        row.appendChild(column_3);
+        row.appendChild(column_4);
+        row.appendChild(column_5);
+        
+        TBODY.appendChild(row);
+    }
+    document.getElementById("tabla_informes_usuarios").appendChild(TBODY);
+}
 
 function desplegar_datos_usuarios(listajson){
     document.getElementById("tabla_usuarios").removeChild(document.getElementById("cuerpo_tabla_usuarios"));
@@ -77,6 +140,27 @@ function pullUsuarios(){
                 console.log("Se resivieron los clientes ");
             }else{
                 console.log("Error al obtener la lista de cliuentes");
+            }
+        }
+    };
+    
+    http.open("GET","/APIRESTfull/resources/services/capstore/listarusuarios", true);
+    http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    http.send();
+    console.log("Se envio la solicitud");
+}
+
+function pullInformesUsuarios(){   
+    var http = new XMLHttpRequest();
+    
+    http.onreadystatechange = function() {
+        if(http.readyState == 4) {  // Cuando readyState es igual a 4 la respuesta esta lista
+            if(http.status == 200){ // Cuando el status es 200 la respuesta llega sin problemas
+                var listaUsuarios = JSON.parse(http.responseText);
+                desplegar_datos_informes_usuarios(listaUsuarios);
+                console.log("Se resivieron el informe de clientes ");
+            }else{
+                console.log("Error al obtener el informe de clientes");
             }
         }
     };

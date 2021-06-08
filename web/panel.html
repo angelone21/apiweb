@@ -50,38 +50,32 @@
 
 <main id="vista">
     
-<!-- Menu --> 
+    <!-- Menu --> 
     <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 300px;">
         <a href="" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-          <svg class="bi me-2" width="100" height="100"><use xlink:href="#logocapstore"/></svg>
-          <span class="fs-4" style="padding-bottom: 10px;">PANEL </span>
+            <svg class="bi me-2" width="100" height="100"><use xlink:href="#logocapstore"/></svg>
+            <span class="fs-4" style="padding-bottom: 10px;">PANEL</span>
         </a>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
-          <li class="nav-item">
-            <a id="view_clientes" href="#" class="nav-link active" aria-current="page">
-              <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-              Gestionar Clientes
-            </a>
-          </li>
-          <li>
-            <a id="view_productos" href="#" class="nav-link text-white">
-              <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-              Gestionar Productos
-            </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link text-white">
-              <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-              Recaudo de Dinero
-            </a>
-          </li>
+            <li class="nav-item">
+                <a id="view_clientes" class="nav-link text-white active" style="cursor: pointer;">
+                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
+                  Gestionar Clientes
+                </a>
+            </li>
+            <li>
+                <a id="view_productos" class="nav-link text-white" style="cursor: pointer;">
+                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
+                  Gestionar Productos
+                </a>
+            </li>
         </ul>
         <hr>
         <!-- menu configuracion --> 
         <div class="dropdown">
-          <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+          <a class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="public/user_12821.png" alt="" width="32" height="32" class="rounded-circle me-2">
             <strong>Usuario</strong>
           </a>
           <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
@@ -93,32 +87,34 @@
         </div>
         <!-- menu configuracion -->
     </div>
-<!-- Menu --> 
     
-      
-<!-- Contenedor de menu -->    
-    <!-- Gestionar Clientes -->
+    <!-- Contenedor de menu -->  
     <div class="container" >
+            <!-- Gestionar Clientes -->
             <div class="container" id="contenedor_clientes">
+                
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button id="tab_clientes" class="nav-link active fw-bold" data-bs-toggle="tab" data-bs-target="#tabxy1" type="button" role="tab" aria-controls="tabxy1" aria-selected="true">LISTA DE CLIENTES</button>
+                        <button id="tab_clientes" class="nav-link active fw-bold" data-bs-toggle="tab" data-bs-target="#tabxy1" type="button" role="tab"  aria-selected="true">LISTA DE CLIENTES</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link fw-bold"  data-bs-toggle="tab" data-bs-target="#tabxy2" type="button" role="tab" aria-controls="tabxy2" aria-selected="false">Informes</button>
+                        <button class="nav-link fw-bold"  data-bs-toggle="tab" data-bs-target="#tabxy2" type="button" role="tab"  aria-selected="false">REGISTRO DE CLIENTES</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link fw-bold"  data-bs-toggle="tab" data-bs-target="#tabxy3" type="button" role="tab" aria-controls="tabxy3" aria-selected="false">Facturas</button>
+                        <button class="nav-link fw-bold"  data-bs-toggle="tab" data-bs-target="#tabxy3" type="button" role="tab"  aria-selected="false">INFORMES DE CLIENTES</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link fw-bold"  data-bs-toggle="tab" data-bs-target="#tabxy4" type="button" role="tab"  aria-selected="false">FACTURAS</button>
                     </li>
                 </ul>
 
                 <div class="tab-content">
-                    <div  class="tab-pane fade show active" id="tabxy1" role="tabpanel" aria-labelledby="tabxy1-tab" style="overflow: scroll; height: 650px; padding: 5px;">
+                    <div  class="tab-pane fade show active" id="tabxy1" role="tabpanel" aria-labelledby="tabxy1-tab" style="overflow: scroll; height: 650px; margin: 5px;">
                         <hr>
                         <div class="container">
-                            <div class="row" style="background-color: #ccffff;">
+                            <div class="row bg-dark border-bottom rounded" style="margin: 10px; padding: 10px;">
                                 <div class="col">
-                                    <p class="fw-bold text-start" style="padding-top:10px; color: #006ee0">Esta es la lista de todos los usuarios registrado en la plaforma digital de CapStore</p>
+                                    <p class="fw-bold text-start text-white" >Esta es la lista de todos los usuarios registrado en la plaforma digital de CapStore</p>
                                 </div>
                                 <div class="col col-lg-2" style="padding-top: 5px;">
                                     <button id="actualizar_tabla_usuarios" class="btn btn-primary btn-primary" style="float: right;">Actualizar</button>
@@ -195,112 +191,217 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        
+                        </div> 
                     </div>
                     
-                    <div class="tab-pane fade" id="tabxy2" role="tabpanel" aria-labelledby="tabxy2-tab">
-                        <p>Se muestra informe de clientes estrellas, informe de clientes y compras realizadas</p>  
+                    <div class="tab-pane fade" id="tabxy2" role="tabpanel"  style="overflow: scroll; height: 650px; margin: 5px;">
+                        <hr>
+                        <div class="row bg-dark border-bottom rounded" style="margin: 10px; padding: 10px;">
+                            <div class="col">
+                                <p class="fw-bold text-center text-white" style="padding-top:10px;">Registrar Clientes</p>
+                            </div>
+                            <div class="col">
+                                <img src="public/user_12821.png" width="48px" height="48px" style="float: right;">
+                            </div>
+                        </div>
+                        <hr>
+                        
+                        <div class="col-md-7 col-lg-8" style="padding: 20px;">
+                            <div class="row g-3">
+                                <!-- Identificacion -->
+                                <div class="col-12">
+                                    <label for="identificacion" class="form-label">Número de Identificación</label>
+                                    <div class="input-group has-validation">
+                                      <input type="text" class="form-control" id="identificacion" placeholder="Identificacion" required>
+                                    </div>
+                                </div>
+                                 <!--nombres-->
+                                <div class="col-sm-6">
+                                    <label for="nombres" class="form-label">Nombres</label>
+                                    <input type="text" class="form-control" id="nombres" placeholder="Nombres" value="" required>
+                                  </div>
+                                <!--Apellido-->
+                                <div class="col-sm-6">
+                                    <label for="apellidos" class="form-label">Apellidos</label>
+                                    <input type="text" class="form-control" id="apellidos" placeholder="Apellidos" value="" required>
+                                </div>
+                                <!--fecha de nacimiento-->
+                                <div class="col-12">
+                                    <label for="fechanacimiento" class="form-label">Fecha de Nacimiento</label>
+                                    <input type="date" class="form-control" id="fechanacimiento" required>
+                                </div>
+                                <!-- Genero -->
+                                <div class="col-md-5">
+                                    <label for="sexo" class="form-label">Sexo</label>
+                                    <select class="form-select" id="sexo" required>
+                                      <option value="">Seleccionar</option>
+                                      <option>Femenino</option>
+                                      <option>Masculino</option>
+                                      <option>Sin Definir</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <hr class="my-4">
+                            <div class="form-label">
+                                <label class="form-label" for="contrasena">Contraseña </label>
+                                <input type="password" class="form-control" id="contrasena" required>
+                            </div>
+                            
+                            <hr class="my-4">
+                            <button id="registrar_usuario_panel" class="w-100 btn btn-primary" >Registrar</button>
+                        </div>
                     </div>
-                    <div class="tab-pane fade" id="tabxy3" role="tabpanel" aria-labelledby="tabxy3-tab">
+                    
+                    <!-- Informes Clientes -->
+                    <div class="tab-pane fade" id="tabxy3" role="tabpanel" style="overflow: scroll; height: 650px; margin: 5px;">
+                        <hr>
+                        <div class="container">
+                            <div class="row bg-dark border-bottom rounded" style="margin: 10px; padding: 10px;">
+                                <div class="col">
+                                    <p class="fw-bold text-start text-white" >Informes de Clientes</p>
+                                </div>
+                                <div class="col-md-auto">
+                                    <img src="public/business_table_order_report_history_2332.png" style="float: right;">
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <table id="tabla_informes_usuarios" class="table table-sm">
+                            <thead class="table-light">
+                              <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Nombres</th>
+                                <th scope="col">Apellidos</th>
+                                <th scope="col">Cantidad Producto Comprados</th>
+                                <th scope="col">Total Gastado</th>
+                              </tr>
+                            </thead>
+                            <tbody id="cuerpo_tabla_informes_usuarios">
+                              <!--================ Tabla usuarios ===================-->  
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="tab-pane fade" id="tabxy4" role="tabpanel" style="overflow: scroll; height: 650px; padding: 5px;">
                         <p>Se puede hacer una busqueda de facturas por cliente</p>
                     </div>
                 </div>
             </div>
             
+        
             <!-- Gestionar productos -->
             <div class="container"  id="contenedor_productos">
                 <ul class="nav nav-tabs" role="tablist">
-                  <li class="nav-item" role="presentation">
-                    <button  id="tab_crear_productos" class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab2xy1" type="button" role="tab" aria-controls="tab2xy1" aria-selected="true">Crear Productos</button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button id="tab_listar_productos" class="nav-link" data-bs-toggle="tab" data-bs-target="#tab2xy2" type="button" role="tab" aria-controls="tab2xy2" aria-selected="true">Lista de Productos</button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link"  data-bs-toggle="tab" data-bs-target="#tab2xy3" type="button" role="tab" aria-controls="tab2xy3" aria-selected="false">Informes</button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link"  data-bs-toggle="tab" data-bs-target="#tab2xy4" type="button" role="tab" aria-controls="tab2xy4" aria-selected="false">Categorias</button>
-                  </li>
+                    <li class="nav-item" role="presentation">
+                        <button  id="tab_crear_productos" class="nav-link active fw-bold" data-bs-toggle="tab" data-bs-target="#tab2xy1" type="button" role="tab" aria-controls="tab2xy1" aria-selected="true">CREAR PRODUCTOS</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button id="tab_listar_productos" class="nav-link fw-bold" data-bs-toggle="tab" data-bs-target="#tab2xy2" type="button" role="tab" aria-controls="tab2xy2" aria-selected="true">LISTA DE PRODUCTOS</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link fw-bold"  data-bs-toggle="tab" data-bs-target="#tab2xy3" type="button" role="tab" aria-controls="tab2xy3" aria-selected="false">CATEGORIAS</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link fw-bold"  data-bs-toggle="tab" data-bs-target="#tab2xy4" type="button" role="tab" aria-controls="tab2xy4" aria-selected="false">INFORMES DE PRODUCTOS</button>
+                    </li>
                 </ul>
 
                 <div class="tab-content">
+                    <!-- Crear productos-->
                     <div class="tab-pane fade show active" id="tab2xy1" role="tabpanel" aria-labelledby="tab2xy1-tab" style="overflow: scroll; height: 650px;">
-                        
-                        <div class="py-5 text-center">
-                            <h3>Crear Producto</h3>
+                        <hr>
+                        <div class="row bg-dark border-bottom rounded" style="margin: 10px; padding: 10px;">
+                            <div class="col">
+                                <p class="fw-bold text-center text-white" style="padding-top:10px;">Registrar Producto</p>
+                            </div>
+                            <div class="col">
+                                <img src="public/user_12821.png" width="48px" height="48px" style="float: right;">
+                            </div>
                         </div>
-                        <div class="col-md-7 col-lg-8" style="margin-left: 10px;">
-                            <form>
-                                <div class="row g-3">
-                                    <div class="col-sm-6">
-                                        <label for="referencia_producto" class="form-label">Número de Referencia</label>
-                                        <input type="text" class="form-control" id="referencia_producto" placeholder="" required>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <label class="form-label" for="r_categoria">Categoria</label>
-                                        <select class="form-select" id="r_categoria" required>
-                                          <option selected>Seleccionar...</option>
-                                          <option value="1">Nike</option>
-                                        </select>
-                                    </div>
+                        <hr>
+                        <div class="col-md-7 col-lg-8 fw-bold" style="margin: 10px; padding: 20px;">
+                            <div class="row g-3">
+                                <div class="col-sm-6">
+                                    <label for="referencia_producto" class="form-label">Número de Referencia</label>
+                                    <input type="text" class="form-control" id="referencia_producto" placeholder="" required>
                                 </div>
-                                <div class="row g-3">
-                                    <div class="col-sm-6">
-                                        <label for="nombre_producto" class="form-label">Nombre Producto</label>
-                                        <input type="text" class="form-control" id="nombre_producto" placeholder="" required>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <label for="marca" class="form-label">Marca</label>
-                                        <input type="text" class="form-control" id="marca" placeholder="" required>
-                                    </div>
+                                <div class="col-sm-6">
+                                    <label class="form-label" for="r_categoria">Categoria</label>
+                                    <select class="form-select" id="r_categoria" required>
+                                      <option selected>Seleccionar...</option>
+                                      <option value="1">Nike</option>
+                                    </select>
                                 </div>
-                                <label for="precio" class="form-label">Precio</label>
-                                <div class="input-group col-12">
-                                    <span class="input-group-text">$</span>
-                                    <input type="text" class="form-control" id="precio" aria-label="">
-                                    <span class="input-group-text">.00</span>
+                                <div class="col-sm-6">
+                                    <label for="nombre_producto" class="form-label">Nombre Producto</label>
+                                    <input type="text" class="form-control" id="nombre_producto" placeholder="" required>
                                 </div>
-                                <label for="stock" class="form-label">Stock</label>
-                                <div class="input-group col-12">
-                                    <span class="input-group-text">#</span>
-                                    <input type="text" class="form-control" id="stock" aria-label="">
+                                <div class="col-sm-6">
+                                    <label for="marca" class="form-label">Marca</label>
+                                    <input type="text" class="form-control" id="marca" placeholder="" required>
                                 </div>
-                                <div class="row g-3">
-                                    <div class="col-sm-6">
-                                        <label class="form-label" for="talla">Talla</label>
-                                        <select class="form-select" id="talla" required>
-                                          <option selected>Seleccionar...</option>
-                                          <option value="1">S</option>
-                                          <option value="2">XS</option>
-                                          <option value="3">X</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <label class="form-label" for="color">Color</label>
-                                        <select class="form-select" id="color" required>
-                                          <option selected>Seleccionar...</option>
-                                          <option value="1">Azul</option>
-                                          <option value="2">Amarrillo</option>
-                                          <option value="3">Rojo</option>
-                                        </select>
-                                    </div>
+                            </div>
+                            <label for="precio" class="form-label">Precio</label>
+                            <div class="input-group col-12">
+                                <span class="input-group-text">$</span>
+                                <input type="text" class="form-control" id="precio" aria-label="">
+                                <span class="input-group-text">.00</span>
+                            </div>
+                            <label for="stock" class="form-label">Stock</label>
+                            <div class="input-group col-12">
+                                <span class="input-group-text">#</span>
+                                <input type="text" class="form-control" id="stock" aria-label="">
+                            </div>
+                            <div class="row g-3">
+                                <div class="col-sm-6">
+                                    <label class="form-label" for="talla">Talla</label>
+                                    <select class="form-select" id="talla" required>
+                                      <option selected>Seleccionar...</option>
+                                      <option value="1">S</option>
+                                      <option value="2">XS</option>
+                                      <option value="3">X</option>
+                                    </select>
                                 </div>
-                                <label for="promocion" class="form-label">Promocion</label>
-                                <div class="input-group col-12">
-                                    <span class="input-group-text">%</span>
-                                    <input type="text" class="form-control" id="promocion" aria-label="">
+                                <div class="col-sm-6">
+                                    <label class="form-label" for="color">Color</label>
+                                    <select class="form-select" id="color" required>
+                                      <option selected>Seleccionar...</option>
+                                      <option value="1">Azul</option>
+                                      <option value="2">Amarrillo</option>
+                                      <option value="3">Rojo</option>
+                                    </select>
                                 </div>
-                                <br>
-                                <button id="crear_producto" class="btn btn-primary btn-lg">Crear Producto</button>
-                            </form>
+                            </div>
+                            <label for="promocion" class="form-label">Promocion</label>
+                            <div class="input-group col-12">
+                                <span class="input-group-text">%</span>
+                                <input type="text" class="form-control" id="promocion" aria-label="">
+                            </div>
+                            <br>
+                            <button id="crear_producto" class="btn btn-primary">Crear Producto</button>
                         </div>
-
-                        
                     </div>
+                    
+                    <!-- Listar Productos productos-->
                     <div class="tab-pane fade" id="tab2xy2" role="tabpanel" aria-labelledby="tab2xy2-tab" style="overflow: scroll; height: 650px;">
-                        <table class="table">
+                        
+                        <hr>
+                        <div class="container">
+                            <div class="row bg-dark border-bottom rounded" style="margin: 10px; padding: 10px;">
+                                <div class="col">
+                                    <p class="fw-bold text-start text-white" >Esta es la lista de todos los productos disponibles en la plaforma digital de CapStore</p>
+                                </div>
+                                <div class="col col-lg-2" style="padding-top: 5px;">
+                                    <button id="actualizar_tabla_productos" class="btn btn-primary btn-primary" style="float: right;">Actualizar</button>
+                                </div>
+                                <div class="col-md-auto">
+                                    <img src="public/business_table_order_report_history_2332.png" style="float: right;">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <table id="tabla_productos" class="table">
                             <thead>
                               <tr>
                                 <th scope="col">#REFERENCIA</th>
@@ -310,28 +411,17 @@
                                 <th scope="col">Acciones</th>
                               </tr>
                             </thead>
-                            <tbody id="tabla_productos">
-                              <tr>
-                                <td>100</td>
-                                <td>Gorra</td>
-                                <td>NIKE</td>
-                                <td>10%</td>
-                                <td>
-                                    <button type="button" class="btn btn-secondary btn-sm">Ver Mas</button>
-                                    <button type="button" class="btn btn-secondary btn-sm">Editar</button>
-                                    <button type="button" class="btn btn-secondary btn-sm">Eliminar</button>
-                                </td>
-                              </tr>
+                            <tbody id="cuerpo_tabla_productos">
                                 
                             </tbody>
                         </table>
-                        
-                        
                     </div>
+                    
+                    <!-- Gestionar Categorias -->
                     <div class="tab-pane fade" id="tab2xy3" role="tabpanel" aria-labelledby="tab2xy3-tab" style="overflow: scroll; height: 650px;">
                         <!--########################Categoria##########################-->
                             
-                            <form style="margin:10px;">
+                            <div style="margin:10px;">
                                 
                                <h3>Categorias</h3>
                                <p class="border-bottom" style="font-size: 1rem">En esta sección usted podrá ver las categorías de productos que ofrece la tienda virtual, así mismo podrá crear nuevas categorías para una nueva línea de productos que pueda ofrecer la tienda.</p>
@@ -344,129 +434,40 @@
                                     <label for="nombre_categoria" class="form-label">Nombre Categoria</label>
                                     <input type="text" class="form-control" id="nombre_categoria" placeholder="Hombres">
                                 </div>
-                                <div class="mb-3">
-                                  <label for="descripcion_categoria" class="form-label">Descripción</label>
-                                  <textarea class="form-control" id="descripcion_categoria" rows="3"></textarea>
-                                </div>
                                <div class="mb-3">
                                    <button id="crear_categoria" class="btn btn-primary mb-3">Crear</button>
                                 </div>
-                            </form>
+                            </div>
                         
-                            <div class="container px-4 py-5" id="custom-cards">
-                                <h3>Lista de Categorias</h3>
-                                <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-                                    <div class="col">
-                                      <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('public/unsplash-photo-1.jpg');">
-                                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                                          <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h2>
-                                          <ul class="d-flex list-unstyled mt-auto">
-                                            <li class="me-auto">
-                                              <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
-                                            </li>
-                                            <li class="d-flex align-items-center me-3">
-                                              <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
-                                              <small>Earth</small>
-                                            </li>
-                                            <li class="d-flex align-items-center">
-                                              <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
-                                              <small>3d</small>
-                                            </li>
-                                          </ul>
-                                        </div>
-                                      </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col text-center">
+                                        <h3>Lista de Categorias</h3>
                                     </div>
-
-                                    <div class="col">
-                                      <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('public/unsplash-photo-2.jpg');">
-                                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                                          <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Much longer title that wraps to multiple lines</h2>
-                                          <ul class="d-flex list-unstyled mt-auto">
-                                            <li class="me-auto">
-                                              <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
-                                            </li>
-                                            <li class="d-flex align-items-center me-3">
-                                              <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
-                                              <small>Pakistan</small>
-                                            </li>
-                                            <li class="d-flex align-items-center">
-                                              <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
-                                              <small>4d</small>
-                                            </li>
-                                          </ul>
-                                        </div>
-                                      </div>
+                                    <div class="col text-center">
+                                        <button id="actualizar_tabla_categoria" class="btn btn-primary"> Actualizar Categoria</button>
                                     </div>
-
-                                    <div class="col">
-                                      <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('public/unsplash-photo-3.jpg');">
-                                        <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-                                          <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Another longer title belongs here</h2>
-                                          <ul class="d-flex list-unstyled mt-auto">
-                                            <li class="me-auto">
-                                              <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
-                                            </li>
-                                            <li class="d-flex align-items-center me-3">
-                                              <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
-                                              <small>California</small>
-                                            </li>
-                                            <li class="d-flex align-items-center">
-                                              <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
-                                              <small>5d</small>
-                                            </li>
-                                          </ul>
-                                        </div>
-                                      </div>
-                                    </div>
-
-                                    <div class="col">
-                                      <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('public/unsplash-photo-3.jpg');">
-                                        <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-                                          <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Another longer title belongs here</h2>
-                                          <ul class="d-flex list-unstyled mt-auto">
-                                            <li class="me-auto">
-                                              <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
-                                            </li>
-                                            <li class="d-flex align-items-center me-3">
-                                              <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
-                                              <small>California</small>
-                                            </li>
-                                            <li class="d-flex align-items-center">
-                                              <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
-                                              <small>5d</small>
-                                            </li>
-                                          </ul>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="col">
-                                      <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('public/unsplash-photo-3.jpg');">
-                                        <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-                                          <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Another longer title belongs here</h2>
-                                          <ul class="d-flex list-unstyled mt-auto">
-                                            <li class="me-auto">
-                                              <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
-                                            </li>
-                                            <li class="d-flex align-items-center me-3">
-                                              <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
-                                              <small>California</small>
-                                            </li>
-                                            <li class="d-flex align-items-center">
-                                              <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
-                                              <small>5d</small>
-                                            </li>
-                                          </ul>
-                                        </div>
-                                      </div>
-                                    </div>
-
-
-
-
                                 </div>
+                                
+                                <table id="tabla_categoria" class="table">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">#REFERENCIA</th>
+                                        <th scope="col">Nombre De Categoria</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody id="cuerpo_tabla_categoria">
+
+                                    </tbody>
+                                </table>
+                                
                             </div>  
                         <!-- ############### categoria##################-->
                         
+                    </div>
+                    <!-- informes producto-->
+                    <div class="tab-pane fade" id="tab2xy4" role="tabpanel" aria-labelledby="tab2xy4-tab" style="overflow: scroll; height: 650px;">
+                        <p>informes producto</p>
                     </div>
                   </div>
             </div>
