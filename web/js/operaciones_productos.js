@@ -28,6 +28,7 @@ function desplegarCategoriasEnFormulario(listajson){
         
         for(let i=0; i<listajson.length; i++){
             var option2 = document.createElement("option");
+                option2.setAttribute("value",listajson[i].ID_Categoria);
                 option2.innerHTML = listajson[i].categoria;
             select.appendChild(option2);
         }
@@ -187,7 +188,7 @@ function crear_producto(){
     };
     
     var referencia_p = document.getElementById("referencia_producto").value;
-    var r_categoria_p = "0";
+    var r_categoria_p = document.getElementById('r_categoria').value;
     var nombre_p = document.getElementById("nombre_producto").value;
     var talla_p = document.getElementById("talla").value;
     var color_p = document.getElementById("color").value;
