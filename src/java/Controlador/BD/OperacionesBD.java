@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controlador.BD;
 
+import Modelo.Categoria;
 import Modelo.Producto;
 import Modelo.Usuario;
 import java.sql.PreparedStatement;
@@ -28,23 +24,22 @@ public class OperacionesBD {
 
     public boolean login(int id, String password) {
         String sql = "SELECT * FROM usuario where ID_usuario like ? and password like ?";
-        PreparedStatement statement;
-
+        
         try {
-            statement = connection.getConnection().prepareStatement(sql);
+            PreparedStatement statement = connection.getConnection().prepareStatement(sql);
             statement.setString(1, id + "");
             statement.setString(2, password);
             ResultSet result = statement.executeQuery();
             if (result.isBeforeFirst() == true) {
                 connection.close();
                 return true;
+            }else{
+                return false;
             }
-
         } catch (SQLException ex) {
             Logger.getLogger(OperacionesBD.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
-        connection.close();
-        return false;
     }
 
     public boolean registroUsuarioCliente(Usuario usuario) {
@@ -103,27 +98,29 @@ public class OperacionesBD {
     }
 
     public Usuario buscarUsuario(int id) {
-        Usuario usuario = new Usuario();
-        String sql = "SELECT * FROM usuario WHERE ID_usuario=?";
-        PreparedStatement statement;
-
+        String sql = "SELECT * FROM usuario WHERE ID_Usuario=?";
+        Usuario usuario;
+        
         try {
-            statement = connection.getConnection().prepareStatement(sql);
+            PreparedStatement statement = connection.getConnection().prepareStatement(sql);
             statement.setInt(1, id);
             ResultSet result = statement.executeQuery();
             result.next();
-            usuario.setID_usuario(result.getInt("ID_usuario"));
-            usuario.setID_rol(result.getInt("ID_rol"));
-            usuario.setNombres(result.getString("nombres"));
-            usuario.setApellidos(result.getString("apellidos"));
-            usuario.setFecha_nacimiento(result.getString("fecha_nacimiento"));
-            usuario.setGenero(result.getString("genero"));
-
+            
+            usuario = new Usuario();
+            usuario.setID_usuario(result.getInt("ID_Usuario"));
+            usuario.setID_rol(result.getInt("ID_Rol"));
+            usuario.setPassword(result.getString("Password"));
+            usuario.setNombres(result.getString("Nombres"));
+            usuario.setApellidos(result.getString("Apellidos"));
+            usuario.setFecha_nacimiento(result.getString("Fecha_Nacimiento"));
+            usuario.setGenero(result.getString("Genero"));
+            connection.close();
+            return usuario;
         } catch (SQLException ex) {
             Logger.getLogger(OperacionesBD.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
         }
-        connection.close();
-        return usuario;
     }
     
     public int calcularPromocion(int id) {
@@ -146,25 +143,28 @@ public class OperacionesBD {
         return precio;
     }
     
-    
-    
-
     public boolean agregarProducto(Producto producto) {
-        String sql = "INSERT INTO producto (id,nombre,descripcion,precio,cantidad,tipo) VALUES (?, ?, ?,?,?,?)";
+        String sql = "INSERT INTO producto (ID_Producto,ID_Categoria,Talla,Color,Marca,Precio,Stock,Imagen,Promocion,nombre) VALUES (?,?,?,?,?,?,?,?,?,?)";
 
-        PreparedStatement statement;
         try {
-            statement = connection.getConnection().prepareStatement(sql);
-            //statement.setInt(1, producto.getId());
+            PreparedStatement statement = connection.getConnection().prepareStatement(sql);
+            statement.setInt(1,producto.getID_producto());
+            statement.setInt(2,producto.getID_categoria());
+            statement.setString(3,producto.getTalla());
+            statement.setString(4,producto.getColor());
+            statement.setString(5,producto.getMarca());
+            statement.setInt(6,producto.getPrecio());
+            statement.setInt(7,producto.getStock());
+            statement.setString(8,producto.getImagen());
+            statement.setFloat(9,producto.getPromocion());
+            statement.setString(10,producto.getNombre());
             statement.execute();
             connection.close();
             return true;
-
         } catch (SQLException ex) {
             Logger.getLogger(OperacionesBD.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
-        connection.close();
-        return false;
     }
 
     public boolean actualizarProducto(Producto producto) {
@@ -186,17 +186,16 @@ public class OperacionesBD {
     public boolean eliminarProducto(int id) {
         String sql = "DELETE FROM producto WHERE id=?";
 
-        PreparedStatement statement;
         try {
-            statement = connection.getConnection().prepareStatement(sql);
+            PreparedStatement statement = connection.getConnection().prepareStatement(sql);
             statement.setInt(1, id);
             statement.execute();
             return true;
 
         } catch (SQLException ex) {
             Logger.getLogger(OperacionesBD.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
-        return false;
     }
 
     public ArrayList<Producto> listarProductosNombre(String nombre) {
@@ -319,6 +318,35 @@ public class OperacionesBD {
      *
      */
     
+    public ArrayList<Producto> listarProductos() {
+        String sql = "SELECT * FROM producto";
+        ArrayList<Producto> listaProductos = null;
+        Producto producto;
+        
+        try {
+            PreparedStatement statement = connection.getConnection().prepareStatement(sql);
+            ResultSet result = statement.executeQuery();
+            listaProductos = new ArrayList<Producto>();
+            while (result.next()) {
+                producto = new Producto();
+                producto.setID_producto(result.getInt("ID_Producto"));
+                producto.setID_categoria(result.getInt("ID_Categoria"));
+                producto.setTalla(result.getString("Talla"));
+                producto.setColor(result.getString("Color"));
+                producto.setMarca(result.getString("Marca"));
+                producto.setPrecio(result.getInt("Precio"));
+                producto.setStock(result.getInt("Stock"));
+                producto.setImagen(result.getString("Imagen"));
+                producto.setPromocion(result.getInt("Promocion"));
+                producto.setNombre(result.getString("nombre"));
+                listaProductos.add(producto);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(OperacionesBD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listaProductos;
+    }
+    
     public ArrayList<Usuario> listarUsuarios() {
         ArrayList<Usuario> listaUsuarios = null;
         Usuario usuario;
@@ -345,4 +373,75 @@ public class OperacionesBD {
         return listaUsuarios;
     }
     
+    public boolean eliminarUsuario(int id) {
+        String sql = "DELETE FROM usuario WHERE ID_Usuario=?";
+
+        try {
+            PreparedStatement statement = connection.getConnection().prepareStatement(sql);
+            statement.setInt(1, id);
+            statement.execute();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(OperacionesBD.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+    
+    public boolean actualizarUsuario(Usuario usuario) {
+        String sql = "UPDATE usuario SET Nombres=?, Apellidos=?,Fecha_Nacimiento=?,Genero=?,Password=? WHERE ID_Usuario=?";
+
+        try {
+            PreparedStatement statement = connection.getConnection().prepareStatement(sql);
+            statement.setString(1,usuario.getNombres());
+            statement.setString(2,usuario.getApellidos());
+            statement.setString(3,usuario.getFecha_nacimiento());
+            statement.setString(4,usuario.getGenero());
+            statement.setString(5,usuario.getPassword());
+            statement.setInt(6,usuario.getID_usuario());
+            statement.execute();
+            connection.close();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(OperacionesBD.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+    
+    public boolean crearCategoria(Categoria categoria) {
+        String sql = "INSERT INTO categoria (ID_Categoria,categoria) VALUES (?,?)";
+
+        try {
+            PreparedStatement statement = connection.getConnection().prepareStatement(sql);
+            statement.setInt(1,categoria.getID_Categoria());
+            statement.setString(2,categoria.getCategoria());
+            statement.execute();
+            connection.close();
+            return true; 
+        } catch (SQLException ex) {
+            Logger.getLogger(OperacionesBD.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+    
+    public ArrayList<Categoria> listarCategoria() {
+        String sql = "SELECT * FROM  categoria";
+        ArrayList<Categoria> listaCategorias = null;
+        Categoria categoria;
+        
+        try {
+            PreparedStatement statement = connection.getConnection().prepareStatement(sql);
+            ResultSet result = statement.executeQuery();
+            listaCategorias = new ArrayList<Categoria>();
+            while (result.next()) {
+                categoria = new Categoria();
+                categoria.setID_Categoria(result.getInt("ID_Categoria"));
+                categoria.setCategoria(result.getString("categoria"));
+                listaCategorias.add(categoria);
+            }
+            return listaCategorias;
+        } catch (SQLException ex) {
+            Logger.getLogger(OperacionesBD.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
 }
