@@ -101,7 +101,7 @@
                         <button class="nav-link fw-bold"  data-bs-toggle="tab" data-bs-target="#tabxy2" type="button" role="tab"  aria-selected="false">REGISTRO DE CLIENTES</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link fw-bold"  data-bs-toggle="tab" data-bs-target="#tabxy3" type="button" role="tab"  aria-selected="false">INFORMES DE CLIENTES</button>
+                        <button id="tab_informe_clientes" class="nav-link fw-bold"  data-bs-toggle="tab" data-bs-target="#tabxy3" type="button" role="tab"  aria-selected="false">INFORMES DE CLIENTES</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link fw-bold"  data-bs-toggle="tab" data-bs-target="#tabxy4" type="button" role="tab"  aria-selected="false">FACTURAS</button>
@@ -302,7 +302,7 @@
                         <button class="nav-link fw-bold"  data-bs-toggle="tab" data-bs-target="#tab2xy3" type="button" role="tab" aria-controls="tab2xy3" aria-selected="false">CATEGORIAS</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link fw-bold"  data-bs-toggle="tab" data-bs-target="#tab2xy4" type="button" role="tab" aria-controls="tab2xy4" aria-selected="false">INFORMES DE PRODUCTOS</button>
+                        <button id="tab_informe_productos" class="nav-link fw-bold"  data-bs-toggle="tab" data-bs-target="#tab2xy4" type="button" role="tab" aria-controls="tab2xy4" aria-selected="false">INFORMES DE PRODUCTOS</button>
                     </li>
                 </ul>
 
@@ -325,11 +325,10 @@
                                     <label for="referencia_producto" class="form-label">Número de Referencia</label>
                                     <input type="text" class="form-control" id="referencia_producto" placeholder="" required>
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-6" id="control_categoria">
                                     <label class="form-label" for="r_categoria">Categoria</label>
                                     <select class="form-select" id="r_categoria" required>
                                       <option selected>Seleccionar...</option>
-                                      <option value="1">Nike</option>
                                     </select>
                                 </div>
                                 <div class="col-sm-6">
@@ -376,6 +375,10 @@
                             <div class="input-group col-12">
                                 <span class="input-group-text">%</span>
                                 <input type="text" class="form-control" id="promocion" aria-label="">
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="link_imagen" class="form-label">Link Imagen</label>
+                                <input type="text" class="form-control" id="link_imagen" placeholder="" required>
                             </div>
                             <br>
                             <button id="crear_producto" class="btn btn-primary">Crear Producto</button>
@@ -467,7 +470,32 @@
                     </div>
                     <!-- informes producto-->
                     <div class="tab-pane fade" id="tab2xy4" role="tabpanel" aria-labelledby="tab2xy4-tab" style="overflow: scroll; height: 650px;">
-                        <p>informes producto</p>
+                        <hr>
+                        <div class="container">
+                            <div class="row bg-dark border-bottom rounded" style="margin: 10px; padding: 10px;">
+                                <div class="col">
+                                    <p class="fw-bold text-start text-white" >Informes de Productos</p>
+                                </div>
+                                <div class="col-md-auto">
+                                    <img src="public/business_table_order_report_history_2332.png" style="float: right;">
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <table id="tabla_informes_productos" class="table table-sm">
+                            <thead class="table-light">
+                              <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Marca</th>
+                                <th scope="col">Total gastado</th>
+                                <th scope="col">Total comprado</th>
+                              </tr>
+                            </thead>
+                                <tbody id="cuerpo_tabla_informes_productos">
+                              <!--================ Tabla usuarios ===================-->  
+                            </tbody>
+                        </table>
                     </div>
                   </div>
             </div>

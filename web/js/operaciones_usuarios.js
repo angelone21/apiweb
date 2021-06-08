@@ -10,6 +10,7 @@ window.addEventListener('load',pullUsuarios,false);
 
 document.getElementById('actualizar_tabla_usuarios').addEventListener('click',pullUsuarios,false);
 document.getElementById('registrar_usuario_panel').addEventListener('click',rigistrar_usuario,false);
+document.getElementById('tab_informe_clientes').addEventListener('click',pullInformesUsuarios,false);
 
 function rigistrar_usuario(){
     var http = new XMLHttpRequest();
@@ -59,8 +60,8 @@ function desplegar_datos_informes_usuarios(listajson){
         column_1.innerHTML = listajson[i].ID_usuario;
         column_2.innerHTML = listajson[i].nombres;
         column_3.innerHTML = listajson[i].apellidos;
-        column_4.innerHTML = listajson[i].fecha_nacimiento;
-        column_5.innerHTML = listajson[i].genero;
+        column_4.innerHTML = listajson[i].total_gastado;
+        column_5.innerHTML = listajson[i].total_comprado;
         
         row.appendChild(column_1);
         row.appendChild(column_2);
@@ -156,8 +157,8 @@ function pullInformesUsuarios(){
     http.onreadystatechange = function() {
         if(http.readyState == 4) {  // Cuando readyState es igual a 4 la respuesta esta lista
             if(http.status == 200){ // Cuando el status es 200 la respuesta llega sin problemas
-                var listaUsuarios = JSON.parse(http.responseText);
-                desplegar_datos_informes_usuarios(listaUsuarios);
+                var informe = JSON.parse(http.responseText);
+                desplegar_datos_informes_usuarios(informe);
                 console.log("Se resivieron el informe de clientes ");
             }else{
                 console.log("Error al obtener el informe de clientes");
@@ -165,7 +166,7 @@ function pullInformesUsuarios(){
         }
     };
     
-    http.open("GET","/APIRESTfull/resources/services/capstore/listarusuarios", true);
+    http.open("GET","/APIRESTfull/resources/services/capstore/informeclientes", true);
     http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     http.send();
     console.log("Se envio la solicitud");
